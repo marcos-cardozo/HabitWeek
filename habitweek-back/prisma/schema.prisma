@@ -27,9 +27,12 @@ model Habito {
 }
 
 model Historial {
-  id        String   @id @default(uuid())
-  fecha     DateTime
+  id         String   @id @default(uuid())
+  fecha      DateTime
   completado Boolean
-  habito    Habito   @relation(fields: [habitoId], references: [id])
-  habitoId  String
+  habito     Habito   @relation(fields: [habitoId], references: [id])
+  habitoId   String
+
+  @@unique([habitoId, fecha], name: "habitoId_fecha") // 👈 esto sí es válido
 }
+
