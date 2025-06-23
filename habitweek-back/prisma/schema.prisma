@@ -1,12 +1,5 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/prisma"
 }
 
 datasource db {
@@ -14,31 +7,29 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id       String   @id @default(uuid())
-  email    String   @unique
-  name     String?
-  password String
-  habits   Habit[]
-  createdAt DateTime @default(now())
-}
-
-model Habit {
-  id          String     @id @default(uuid())
-  name        String
-  description String?
-  frequency   String[]   // Ej: ["MONDAY", "WEDNESDAY"]
-  isPublic    Boolean    @default(false)
-  userId      String
-  user        User       @relation(fields: [userId], references: [id])
-  completions HabitCompletion[]
-  createdAt   DateTime   @default(now())
-}
-
-model HabitCompletion {
+model Usuario {
   id        String   @id @default(uuid())
-  habitId   String
-  habit     Habit    @relation(fields: [habitId], references: [id])
-  date      DateTime @default(now())
-  notes     String?
+  nombre    String
+  email     String   @unique
+  contraseña String
+  habitos   Habito[]
+}
+
+model Habito {
+  id         String     @id @default(uuid())
+  nombre     String
+  descripcion String?
+  frecuencia Int
+  dias       String[]   // ['L', 'M', 'X', 'J']
+  usuario    Usuario    @relation(fields: [usuarioId], references: [id])
+  usuarioId  String
+  historial  Historial[]
+}
+
+model Historial {
+  id        String   @id @default(uuid())
+  fecha     DateTime
+  completado Boolean
+  habito    Habito   @relation(fields: [habitoId], references: [id])
+  habitoId  String
 }

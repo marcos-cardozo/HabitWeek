@@ -17,28 +17,36 @@ datasource db {
 model User {
   id        String   @id @default(uuid())
   email     String   @unique
-  name      String?
   password  String
   habits    Habit[]
   createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Habit {
-  id          String            @id @default(uuid())
-  name        String
-  description String?
-  frequency   String[] // Ej: ["MONDAY", "WEDNESDAY"]
-  isPublic    Boolean           @default(false)
+  id          String     @id @default(uuid())
   userId      String
-  user        User              @relation(fields: [userId], references: [id])
-  completions HabitCompletion[]
-  createdAt   DateTime          @default(now())
+  title       String
+  description String?
+  frequency   Frequency
+  completedAt DateTime?
+  user        User       @relation(fields: [userId], references: [id])
+  habitLogs   HabitLog[]
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
 }
 
-model HabitCompletion {
-  id      String   @id @default(uuid())
-  habitId String
-  habit   Habit    @relation(fields: [habitId], references: [id])
-  date    DateTime @default(now())
-  notes   String?
+model HabitLog {
+  id        String   @id @default(uuid())
+  habitId   String
+  completed Boolean
+  date      DateTime
+  habit     Habit    @relation(fields: [habitId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+enum Frequency {
+  DAILY
+  WEEKLY
+  MONTHLY
 }

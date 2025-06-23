@@ -20,12 +20,12 @@ exports.Prisma = Prisma
 exports.$Enums = {}
 
 /**
- * Prisma Client JS version: 6.9.0
- * Query Engine version: 81e4af48011447c3cc503a190e86995b66d2a28e
+ * Prisma Client JS version: 6.10.1
+ * Query Engine version: 9b628578b3b7cae625e8c927178f15a170e74a9c
  */
 Prisma.prismaVersion = {
-  client: "6.9.0",
-  engine: "81e4af48011447c3cc503a190e86995b66d2a28e"
+  client: "6.10.1",
+  engine: "9b628578b3b7cae625e8c927178f15a170e74a9c"
 }
 
 Prisma.PrismaClientKnownRequestError = () => {
@@ -123,26 +123,28 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 exports.Prisma.UserScalarFieldEnum = {
   id: 'id',
   email: 'email',
-  name: 'name',
   password: 'password',
-  createdAt: 'createdAt'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.HabitScalarFieldEnum = {
   id: 'id',
-  name: 'name',
+  userId: 'userId',
+  title: 'title',
   description: 'description',
   frequency: 'frequency',
-  isPublic: 'isPublic',
-  userId: 'userId',
-  createdAt: 'createdAt'
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.HabitCompletionScalarFieldEnum = {
+exports.Prisma.HabitLogScalarFieldEnum = {
   id: 'id',
   habitId: 'habitId',
+  completed: 'completed',
   date: 'date',
-  notes: 'notes'
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.SortOrder = {
@@ -159,12 +161,16 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
-
+exports.Frequency = exports.$Enums.Frequency = {
+  DAILY: 'DAILY',
+  WEEKLY: 'WEEKLY',
+  MONTHLY: 'MONTHLY'
+};
 
 exports.Prisma.ModelName = {
   User: 'User',
   Habit: 'Habit',
-  HabitCompletion: 'HabitCompletion'
+  HabitLog: 'HabitLog'
 };
 
 /**

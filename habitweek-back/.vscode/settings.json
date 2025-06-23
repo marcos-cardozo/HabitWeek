@@ -1,15 +1,15 @@
 {
-  "material-icon-theme.files.associations": {
-    "*.module.ts": "nest-module",
-    "*.controller.ts": "nest-controller",
-    "*.service.ts": "nest-service",
-    "*.guard.ts": "nest-guard",
-    "*.decorator.ts": "nest-decorator",
-    "*.filter.ts": "nest-filter"
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "files.eol": "\n",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "material-icon-theme.folders.associations": {
-    "src": "nest",
-    "test": "nest-test",
-    "e2e": "nest-test"
-  }
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.endOfLine": "lf"
 }
