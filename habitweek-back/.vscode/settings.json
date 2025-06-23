@@ -1,0 +1,15 @@
+{
+  "material-icon-theme.files.associations": {
+    "*.module.ts": "nest-module",
+    "*.controller.ts": "nest-controller",
+    "*.service.ts": "nest-service",
+    "*.guard.ts": "nest-guard",
+    "*.decorator.ts": "nest-decorator",
+    "*.filter.ts": "nest-filter"
+  },
+  "material-icon-theme.folders.associations": {
+    "src": "nest",
+    "test": "nest-test",
+    "e2e": "nest-test"
+  }
+}
