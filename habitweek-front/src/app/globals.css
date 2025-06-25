@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 🧠 Si querés mantener variables CSS personalizadas, las podés dejar: */
+:root {
+  --font-sans: "Arial", sans-serif;
+}
+
+/* 🌓 Si querés usar prefers-color-scheme como fallback, OK */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+/* ✅ Pero NO sobreescribas background y color directamente */
+body {
+  @apply bg-fondo-light text-texto-light dark:bg-fondo-dark dark:text-texto-dark transition-colors duration-300;
+  font-family: var(--font-sans);
+}

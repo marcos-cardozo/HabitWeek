@@ -12,8 +12,8 @@ import {
 } from '@nestjs/common';
 import { HabitosService } from './habitos.service';
 import { AuthGuard } from '@nestjs/passport';
-import { UpdateHabitoDto } from 'src/auth/dto/update-habito.dto';
-import { CreateHabitoDto } from 'src/auth/dto/create-habito.dto';
+import { UpdateHabitoDto } from 'src/dto/update-habito.dto';
+import { CreateHabitoDto } from 'src/dto/create-habito.dto';
 
 @UseGuards(AuthGuard('jwt'))
 @Controller('habitos')

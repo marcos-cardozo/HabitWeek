@@ -2,7 +2,7 @@ import { Body, Controller, Get, Param, Post, Query, Request, UseGuards } from '@
 import { HistorialService } from './historial.service';
 import { AuthGuard } from '@nestjs/passport';
 import { ParseUUIDPipe } from '@nestjs/common';
-import { CreateHistorialDto } from 'src/auth/dto/create-historial.dto';
+import { CreateHistorialDto } from 'src/dto/create-historial.dto';
 
 @UseGuards(AuthGuard('jwt'))
 @Controller('historial')
